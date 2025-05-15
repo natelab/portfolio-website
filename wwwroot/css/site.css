@@ -1,44 +1,68 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* site.css */
-
+/* Home page layout */
 .home-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
-    gap: 40px;
+    height: 100vh;
+    padding: 30px;
+    gap: 250px;
 }
 
 .home-image {
-    max-width: 300px;
+    max-width: 500px;
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 80px;
 }
 
 .home-text {
     max-width: 600px;
     font-size: 18px;
+}
+
+/* Typing animation */
+.typing-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.typing-text {
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.line {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+    .line:last-child::after {
+        content: '';
+        border-right: 2px solid black;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        animation: blink 0.75s step-end infinite;
+    }
+
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: black;
+    }
 }

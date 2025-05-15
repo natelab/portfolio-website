@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="home-container">
@@ -8,12 +8,62 @@
         <img src="~/images/A picture of myself.jpg" alt="Nathan Mazonde" class="home-image" />
     </div>
 
-    <!-- Right Side: Intro Text -->
+    <!-- Right Side: Typing Text -->
     <div class="home-text">
-        <h1>Hello!</h1>
-        <p>
-            My name is <strong>Nathan Mazonde</strong>. I am a recent graduate with a bachelor's degree
-            in Information Technology with specialization in Software Engineering.
-        </p>
+        <div class="typing-container">
+            <h1 class="typing-text">
+               
+            </h1>
+        </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // The text to type, split into lines
+        const textLines = [
+            "HELLO & WELCOME",
+            "MY NAME IS NATHAN MAZONDE.",
+            "I AM A GRADUATE WITH A BACHELOR'S",
+            "DEGREE IN INFORMATION TECHNOLOGY",
+        ];
+
+        const typingText = document.querySelector('.typing-text');
+
+        // Create span elements for each line
+        textLines.forEach(line => {
+            const lineElement = document.createElement('span');
+            lineElement.className = 'line';
+            lineElement.textContent = '';  // Start empty
+            typingText.appendChild(lineElement);
+        });
+
+        const lineElements = document.querySelectorAll('.line');
+
+        // Type one character at a time
+        let currentLineIndex = 0;
+        let currentCharIndex = 0;
+
+        function typeNextChar() {
+            if (currentLineIndex < textLines.length) {
+                const line = textLines[currentLineIndex];
+                const lineElement = lineElements[currentLineIndex];
+
+                if (currentCharIndex < line.length) {
+                    // Add next character
+                    lineElement.textContent += line[currentCharIndex];
+                    currentCharIndex++;
+                    setTimeout(typeNextChar, 15);  // Typing speed (50ms per character)
+                } else {
+                    // Move to next line
+                    currentLineIndex++;
+                    currentCharIndex = 0;
+                    setTimeout(typeNextChar, 250);  // Pause between lines
+                }
+            }
+        }
+
+        // Start typing
+        setTimeout(typeNextChar, 500);  // Initial delay
+    });
+</script>
