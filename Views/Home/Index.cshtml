@@ -1,13 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-<div class="container-fluid py-5">
+<div class="container-fluid p-0 m-0">
     <div class="home-container">
         <!-- Left Side: Image (will be second on mobile) -->
         <div class="home-image-wrapper">
             <img src="~/images/A picture of myself.jpg" alt="Nathan Mazonde" class="home-image" />
         </div>
-
         <!-- Right Side: Typing Text (will be first on mobile) -->
         <div class="home-text">
             <div class="typing-container">
@@ -20,11 +19,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const textLines = [
-            "HELLO & WELCOME",
+            "HELLO & WELCOME ",
             "MY NAME IS NATHAN MAZONDE.",
-            "I AM A GRADUATE WITH A BACHELOR'S",
-            "DEGREE IN INFORMATION TECHNOLOGY",
+            "I AM A GRADUATE WITH A ",
+            "BACHELOR'S DEGREE IN ", 
+            "INFORMATION TECHNOLOGY."
         ];
+        
         const typingText = document.querySelector('.typing-text');
         textLines.forEach(line => {
             const lineElement = document.createElement('span');
@@ -32,24 +33,37 @@
             lineElement.textContent = '';
             typingText.appendChild(lineElement);
         });
+        
         const lineElements = document.querySelectorAll('.line');
         let currentLineIndex = 0;
         let currentCharIndex = 0;
+        
         function typeNextChar() {
             if (currentLineIndex < textLines.length) {
                 const line = textLines[currentLineIndex];
                 const lineElement = lineElements[currentLineIndex];
+                
                 if (currentCharIndex < line.length) {
                     lineElement.textContent += line[currentCharIndex];
                     currentCharIndex++;
-                    setTimeout(typeNextChar, 15);
+                    
+                    // Check if we need to wrap text
+                    const container = document.querySelector('.typing-container');
+                    const containerWidth = container.offsetWidth;
+                    if (lineElement.offsetWidth > containerWidth * 0.95) {
+                        lineElement.style.whiteSpace = 'normal';
+                    }
+                    
+                    setTimeout(typeNextChar, 25); // Slightly slower for better readability
                 } else {
                     currentLineIndex++;
                     currentCharIndex = 0;
-                    setTimeout(typeNextChar, 250);
+                    setTimeout(typeNextChar, 300);
                 }
             }
         }
+        
+        // Start typing after a short delay
         setTimeout(typeNextChar, 500);
     });
 </script>
