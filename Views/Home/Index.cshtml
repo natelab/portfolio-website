@@ -1,69 +1,55 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
+<div class="container-fluid py-5">
+    <div class="home-container">
+        <!-- Left Side: Image (will be second on mobile) -->
+        <div class="home-image-wrapper">
+            <img src="~/images/A picture of myself.jpg" alt="Nathan Mazonde" class="home-image" />
+        </div>
 
-<div class="home-container">
-    <!-- Left Side: Image -->
-    <div>
-        <img src="~/images/A picture of myself.jpg" alt="Nathan Mazonde" class="home-image" />
-    </div>
-
-    <!-- Right Side: Typing Text -->
-    <div class="home-text">
-        <div class="typing-container">
-            <h1 class="typing-text">
-               
-            </h1>
+        <!-- Right Side: Typing Text (will be first on mobile) -->
+        <div class="home-text">
+            <div class="typing-container">
+                <h1 class="typing-text"></h1>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // The text to type, split into lines
+    document.addEventListener('DOMContentLoaded', function () {
         const textLines = [
             "HELLO & WELCOME",
             "MY NAME IS NATHAN MAZONDE.",
             "I AM A GRADUATE WITH A BACHELOR'S",
             "DEGREE IN INFORMATION TECHNOLOGY",
         ];
-
         const typingText = document.querySelector('.typing-text');
-
-        // Create span elements for each line
         textLines.forEach(line => {
             const lineElement = document.createElement('span');
             lineElement.className = 'line';
-            lineElement.textContent = '';  // Start empty
+            lineElement.textContent = '';
             typingText.appendChild(lineElement);
         });
-
         const lineElements = document.querySelectorAll('.line');
-
-        // Type one character at a time
         let currentLineIndex = 0;
         let currentCharIndex = 0;
-
         function typeNextChar() {
             if (currentLineIndex < textLines.length) {
                 const line = textLines[currentLineIndex];
                 const lineElement = lineElements[currentLineIndex];
-
                 if (currentCharIndex < line.length) {
-                    // Add next character
                     lineElement.textContent += line[currentCharIndex];
                     currentCharIndex++;
-                    setTimeout(typeNextChar, 15);  // Typing speed (50ms per character)
+                    setTimeout(typeNextChar, 15);
                 } else {
-                    // Move to next line
                     currentLineIndex++;
                     currentCharIndex = 0;
-                    setTimeout(typeNextChar, 250);  // Pause between lines
+                    setTimeout(typeNextChar, 250);
                 }
             }
         }
-
-        // Start typing
-        setTimeout(typeNextChar, 500);  // Initial delay
+        setTimeout(typeNextChar, 500);
     });
 </script>
