@@ -15,41 +15,39 @@
         </div>
     </div>
 </div>
-
+<!-- Updated Projects Section HTML -->
 <section class="projects-container">
     <h2 class="projects-heading">PROJECTS I HAVE WORKED ON:</h2>
-
     <div class="project-item">
         <div class="project-image-wrapper">
             <a href="https://shopwingsandtacos.com" target="_blank">
                 <img src="images/Wings & Tacos.JPG" alt="Wings & Tacos Restaurant Website" class="project-image">
             </a>
         </div>
-
         <div class="project-text">
             <h3 class="project-title">Website For Wings & Tacos Fast Food Restaurant</h3>
             <p class="project-description">
-                I created a website for a local fast restuarant called Wings & Tacos using PHP,
-                HTML, CSS, Javascript and MySQL for the database. The website allows customers 
-                to place orders and has an admin page that allows the owner to keep track of orders
-                as well as close and open the shop. The website also handles online payments 
-                by directing users to PayFast which makes payment process swift and easy.
+                I created a website for a local fast restaurant called Wings & Tacos
+                using PHP, HTML, CSS, Javascript and MySQL for the database. The website
+                allows customers to place orders and has an admin page that allows the
+                owner to keep track of orders as well as close and open the shop. The
+                website also handles online payments by directing users to PayFast which
+                makes payment process swift and easy.
             </p>
             <a href="https://shopwingsandtacos.com" class="project-link" target="_blank">Visit shopwingsandtacos.com</a>
         </div>
     </div>
 </section>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const textLines = [
             "HELLO & WELCOME ",
             "MY NAME IS NATHAN MAZONDE.",
             "I AM A GRADUATE WITH A ",
-            "BACHELOR'S DEGREE IN ", 
+            "BACHELOR'S DEGREE IN ",
             "INFORMATION TECHNOLOGY."
         ];
-        
+
         const typingText = document.querySelector('.typing-text');
         textLines.forEach(line => {
             const lineElement = document.createElement('span');
@@ -57,27 +55,27 @@
             lineElement.textContent = '';
             typingText.appendChild(lineElement);
         });
-        
+
         const lineElements = document.querySelectorAll('.line');
         let currentLineIndex = 0;
         let currentCharIndex = 0;
-        
+
         function typeNextChar() {
             if (currentLineIndex < textLines.length) {
                 const line = textLines[currentLineIndex];
                 const lineElement = lineElements[currentLineIndex];
-                
+
                 if (currentCharIndex < line.length) {
                     lineElement.textContent += line[currentCharIndex];
                     currentCharIndex++;
-                    
+
                     // Check if we need to wrap text
                     const container = document.querySelector('.typing-container');
                     const containerWidth = container.offsetWidth;
                     if (lineElement.offsetWidth > containerWidth * 0.95) {
                         lineElement.style.whiteSpace = 'normal';
                     }
-                    
+
                     setTimeout(typeNextChar, 25); // Slightly slower for better readability
                 } else {
                     currentLineIndex++;
@@ -86,7 +84,7 @@
                 }
             }
         }
-        
+
         // Start typing after a short delay
         setTimeout(typeNextChar, 500);
     });
