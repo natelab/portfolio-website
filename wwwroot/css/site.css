@@ -86,7 +86,7 @@
         flex-direction: column-reverse;
         gap: 20px;
         height: auto;
-        padding: 5% 3%;
+        padding: 10% 3%;
     }
 
     .home-image-wrapper {
@@ -112,7 +112,7 @@
 
 @media (max-width: 576px) {
     .home-container {
-        padding: 10% 5%;
+        padding: 20% 5%;
     }
 
     .home-image-wrapper {
@@ -121,6 +121,7 @@
 
     .typing-text {
         font-size: 16px;
+        font-weight: 800;
     }
 
     .line {
@@ -300,7 +301,7 @@ html, body {
 /* Skills Section Styling */
 .skills-container {
     background-color: #f8f9fa;
-    padding: 80px 5%;
+    padding: 180px 5%;
     margin: 0;
     width: 100%;
     box-sizing: border-box;
@@ -414,7 +415,7 @@ html, body {
 
 @media (max-width: 576px) {
     .skills-container {
-        padding: 50px 5%;
+        padding: 60px 5%;
     }
 
     .skills-heading {
